@@ -14,7 +14,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ReportController;
 
 
-Route::get('/user', function (Request $request) {   
+Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
@@ -31,7 +31,7 @@ Route::post('/login', [AuthController::class, 'login']);//Invokes the login meth
 //Route::post('/logout', [AuthController::class, 'logout']);
 
 // User Routes
-Route::get('/users', [UserController::class, 'readUsers']); 
+Route::get('/users', [UserController::class, 'readUsers']);
 Route::post('/user', [UserController::class, 'createUser']);
 Route::get('/user/{id}', [UserController::class, 'readUser']);
 Route::put('/user/{id}', [UserController::class, 'updateUser']);
@@ -47,7 +47,7 @@ Route::prefix('admin')->group(function () {
 
 
 // Building Routes
-Route::get('/buildings', [BuildingController::class, 'readBuildings']); 
+Route::get('/buildings', [BuildingController::class, 'readBuildings']);
 Route::post('/building', [BuildingController::class, 'createBuilding']);
 Route::get('/building/{id}', [BuildingController::class, 'readBuilding']);
 Route::put('/building/{id}', [BuildingController::class, 'updateBuilding']);
@@ -122,5 +122,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
         // Admin routes
     });
 
-    
+
 });

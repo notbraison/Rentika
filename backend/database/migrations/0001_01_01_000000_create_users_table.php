@@ -33,6 +33,8 @@ return new class extends Migration
             $table->timestamp('created_at')->nullable();
         });
 
+        echo"creating password reset tokens table";
+
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignId('user_id')->nullable()->index();

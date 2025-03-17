@@ -35,13 +35,13 @@
             <a href="#" class="social-link" style="color: #4267B2;">Facebook</a>
             <a href="#" class="social-link" style="color: #1DA1F2;">Twitter</a>
             <a href="#" class="social-link" style="color: #C32AA3;">Instagram</a>
-            <a href="#" class="social-link" style="color: #0077B5;">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/braison-orina-9b5576254/" class="social-link" style="color: #0077B5;">LinkedIn</a>
           </div>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2024 Copyright: <a href="https://github.com/notbraison" class="footer-link">Braison</a></p>
+      <p>© 2025 Copyright: <a href="https://github.com/notbraison" class="footer-link">Braison</a></p>
     </div>
   </footer>
 </template>
@@ -76,7 +76,7 @@ body {
 
 .footer {
   background-color: #24262b;
-  padding: 70px 0;
+  padding: 20px 0;
   color: #ffffff;
 }
 
@@ -140,10 +140,12 @@ body {
 }
 
 .footer-bottom {
-  background-color: #1a1a1a; /* Darker footer bottom */
+  background-color: white; /* Darker footer bottom */
   text-align: center;
-  padding: 15px 0;
-  color: #f5f5f5;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
+  color:black;
 }
 
 /* Responsive */

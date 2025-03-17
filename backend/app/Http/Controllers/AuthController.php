@@ -31,7 +31,7 @@ class AuthController extends Controller
             'gender' => 'nullable|in:male,female',
         ]);
 
-        
+
 
         if($fields['usertype'] === 'admin') {
             $user = Admin::create([
@@ -41,7 +41,7 @@ class AuthController extends Controller
                 'password' => Hash::make($fields['password']),
                 'contact' => $fields['contact'],
                 'usertype' => 'admin',
-                
+
             ]);
         }else{
             $user =  User::create([
@@ -91,7 +91,7 @@ class AuthController extends Controller
         $user = Admin::where('email', $fields['email'])->first();
         $role = 'admin';
     }
-
+    
     // Check if user or admin is found and the password is correct
     if (!$user || !Hash::check($fields['password'], $user->password)) {
         return response(['message' => 'Invalid credentials'], 401);
@@ -144,4 +144,4 @@ class AuthController extends Controller
         auth()->user()->tokens()->delete();
         return response()->json(['message' => 'Successfully logged out']);
     }
-} 
+}

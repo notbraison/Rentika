@@ -4,6 +4,7 @@
       <NavBar/>  
     </header> <br>
       
+    
 
     
 
@@ -27,6 +28,7 @@
 <script >
 import NavBar from './components/Navbar.vue';
 import Footer from './components/Footer.vue';
+import {useDark} from '@vueuse/core';
 
 
 
@@ -35,8 +37,8 @@ export default{
     components:{
      NavBar,
      Footer
-    }
-    
+    },
+        
 }
 
 </script>

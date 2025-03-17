@@ -23,3 +23,8 @@ This Building Management System is a web-based application designed to manage bu
 
 - **Backend**: PHP - Laravel, MySQL
 - **Frontend**: VueJS , planning to switch over to Flutter, might do a quick react frontend fro practice
+
+test
+
+johnny.doeyy@email.com
+password123

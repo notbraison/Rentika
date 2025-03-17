@@ -58,6 +58,14 @@
               <img src="../assets/svg/profile.svg" alt="Profile" width="30" height="26" />
             </router-link>
           </li>
+
+          <!-- <li>
+            <button @click="toggleDarkMode" class="btn btn-sm btn-outline-secondary">
+              <i :class="isDarkMode ? 'bi bi-sun' : 'bi bi-moon'"></i>
+              {{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}
+            </button>
+          </li> -->
+
         </ul>
       </div>
     </div>
@@ -69,7 +77,8 @@ export default {
   name: 'NavBar',
   data() {
     return {
-      user: null // Store user details
+      user: null, // Store user details
+      isDarkMode:false,
     };
   },
   methods: {
@@ -87,6 +96,26 @@ export default {
       this.user = JSON.parse(localStorage.getItem('user'));
       this.$emit('authChanged', this.isLoggedIn); // Emit an event to notify parent components
     },
+    toggleDarkMode() {
+      this.isDarkMode = !this.isDarkMode;
+      document.body.classList.toggle('dark-mode', this.isDarkMode);
+      localStorage.setItem('darkMode', this.isDarkMode.toString());
+      document.documentElement.setAttribute('data-bs-theme', this.isDarkMode ? 'dark' : 'light');
+  
+  localStorage.setItem('darkMode', this.isDarkMode.toString());
+    },
+    initDarkMode() {
+      // Check for saved preference
+      const savedMode = localStorage.getItem('darkMode');
+      if (savedMode !== null) {
+        this.isDarkMode = savedMode === 'true';
+      } else {
+        // Check system preference as fallback
+        this.isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
+      // Apply the mode
+      document.body.classList.toggle('dark-mode', this.isDarkMode);
+    }
   },
   computed: {
     isLoggedIn() {
@@ -104,7 +133,11 @@ export default {
   created() {
     // Check if user data is available and store it in component's state
     this.updateAuthState();
-  }
+  },
+  mounted(){
+    this.initDarkMode();
+  },
+
 };
 </script>
 

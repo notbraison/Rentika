@@ -15,8 +15,8 @@
             <input :type="passwordFieldType" class="form-control" id="password" placeholder="password" v-model="password"
               required>
               <br> 
-              <div class="btnOutline">
-                <button type="password" @click="switchVisibility" class="btn btn-light"
+              <div class="btn">
+                <button  @click="switchVisibility" class="btn btn-light"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" >show / hide</button>
               </div>
               
@@ -67,41 +67,34 @@ export default {
       this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
     },
     async login() {
-  // First, get the CSRF cookie
-  await axios.get('/sanctum/csrf-cookie');
-
   try {
+    await axios.get('/sanctum/csrf-cookie'); // Ensure CSRF token is set
+
     const response = await axios.post('http://127.0.0.1:8000/api/login', {
-      email: email.value,
+      email: this.email,  // Fix: Use "this.email" instead of "email.value"
       password: this.password,
       remember_me: this.rememberMe
     });
 
-    // Extract token, role, and user from the response data
+    // Process login response
     this.token = response.data.token;
     this.role = response.data.role;
-    this.user = response.data.user; // Store the user object
+    this.user = response.data.user;
 
     if (this.token) {
-      // Store data in localStorage
-      localStorage.setItem('token', this.token || '');  // Fallback to an empty string if this.token is not defined
-      localStorage.setItem('role', this.role || '');  // Fallback to an empty string if this.role is not defined
-      localStorage.setItem('user', JSON.stringify(this.user) || '{}');  // Fallback to an empty object if this.user is not defined
-      localStorage.setItem('userId', this.user?.user_id || '');  // Use optional chaining for user ID
-
-      // Log the stored values to confirm everything works
-      /* console.log("token:", localStorage.getItem('token'));
-      console.log("role:", localStorage.getItem('role'));
-      console.log("user:", localStorage.getItem('user'));
-      console.log("userId:", localStorage.getItem('userId')); */
+      localStorage.setItem('token', this.token || '');
+      localStorage.setItem('role', this.role || '');
+      localStorage.setItem('user', JSON.stringify(this.user) || '{}');
+      localStorage.setItem('userId', this.user?.user_id || '');
 
       this.$router.push('/');
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
     alert('Login failed. Please check your credentials.');
   }
 }
+
 
 },
     async fetchData() {
