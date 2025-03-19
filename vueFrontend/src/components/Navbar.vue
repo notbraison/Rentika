@@ -8,7 +8,7 @@
 <a class="navbar-brand" id="navlink" href="/">
         <img src="../assets/building-svgrepo-com.svg" alt="Logo" width="30" height="34"
           class="d-inline-block align-text-top"> &nbsp;
-        <span class="navbar-brand mb-0 h1">BuildingMS</span>
+        <span class="navbar-brand mb-0 h1">Rentika</span>
       </a>
 
       </div>
@@ -18,7 +18,7 @@
 <a class="navbar-brand" id="navlink" href="/">
         <img src="../assets/svg/home-page-svgrepo-com.svg" alt="Logo" width="30" height="34"
           class="d-inline-block align-text-top"> &nbsp;
-        <span class="navbar-brand mb-0 h1">HomeStay</span>
+        <span class="navbar-brand mb-0 h1">Rentika</span>
       </a>
 
       </div>    

@@ -7,7 +7,7 @@
     <!-- Admin Dashboard Section -->
     <div v-if="userRole === 'admin'" class="admin-dashboard">
       <div class="welcome-section">
-        <h1>Welcome to the Building Management System</h1>
+        <h1>Welcome to the Rentika Management System</h1>
         <p class="welcome-message">Manage your buildings with ease.</p>
       </div>
       <h2>Admin Dashboard</h2>
