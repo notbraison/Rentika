@@ -71,7 +71,7 @@ export default {
     await axios.get('/sanctum/csrf-cookie'); // Ensure CSRF token is set
 
     const response = await axios.post('http://127.0.0.1:8000/api/login', {
-      email: this.email,  // Fix: Use "this.email" instead of "email.value"
+      email: this.email,
       password: this.password,
       remember_me: this.rememberMe
     });
