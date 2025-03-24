@@ -14,7 +14,7 @@ export default defineConfig({
       }
     }
   },
-  base:'/Rentika',
+  base:'/',
   plugins: [vue()],
   server:{
     port:3500
